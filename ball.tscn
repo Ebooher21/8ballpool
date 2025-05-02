@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0osmfaj728ko"]
+
+[ext_resource type="Texture2D" uid="uid://pj7jbkslo2xb" path="res://icon.svg" id="1_x8fbi"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_cbx31"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_41u45"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_x8fbi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Ball" type="Area3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_cbx31")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+sprite_frames = SubResource("SpriteFrames_41u45")

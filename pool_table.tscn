@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://diw4li1hi1jpx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_33hvx"]
+size = Vector3(11.984, 1, 20.8767)
+
+[sub_resource type="BoxMesh" id="BoxMesh_33hvx"]
+
+[node name="PoolTable" type="Area3D"]
+
+[node name="Floor" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.507609, 0)
+shape = SubResource("BoxShape3D_33hvx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(11.9698, 0, 0, 0, 1, 0, 0, 0, 20.8991, 0, -0.499872, 0)
+mesh = SubResource("BoxMesh_33hvx")
