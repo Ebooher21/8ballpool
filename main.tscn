@@ -1,14 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://blb1kla1lca4i"]
+[gd_scene load_steps=4 format=3 uid="uid://blb1kla1lca4i"]
 
 [ext_resource type="PackedScene" uid="uid://diw4li1hi1jpx" path="res://pool_table.tscn" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://c0osmfaj728ko" path="res://ball.tscn" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://b4un1gpb57873" path="res://pool_cue.tscn" id="3_h2yge"]
 
 [node name="Main" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4.661, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 10.1418915, 0)
+light_energy = 2.485
 shadow_enabled = true
 
 [node name="PoolTable" parent="." instance=ExtResource("1_0xm2m")]
+transform = Transform3D(16, 0, 0, 0, 16, 0, 0, 0, 16, -0.009594917, 7.3239355, 0)
 
 [node name="Ball" parent="." instance=ExtResource("2_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.31175005, -8.206675)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.90107703, 0.4336591, 0, -0.4336591, 0.90107703, 0, 6.5318303, 18.586205)
+fov = 56.0
+
+[node name="PoolCue" parent="." instance=ExtResource("3_h2yge")]
+transform = Transform3D(1, 0, 0, 0, -0.08715577, -0.9961947, 0, 0.9961947, -0.08715577, 0.031861305, 1.0841341, -16.632267)
+
+[node name="Camera3D2" type="Camera3D" parent="."]
+transform = Transform3D(-1, -6.716548e-08, 5.5960175e-08, 0, 0.6401098, 0.76828355, -8.742278e-08, 0.76828355, -0.6401098, -0.077116966, 10.08034, -21.616833)

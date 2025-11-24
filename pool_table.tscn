@@ -1,16 +1,54 @@
-[gd_scene load_steps=3 format=3 uid="uid://diw4li1hi1jpx"]
+[gd_scene load_steps=8 format=3 uid="uid://diw4li1hi1jpx"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_33hvx"]
-size = Vector3(11.984, 1, 20.8767)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_33hvx"]
+albedo_color = Color(0, 0.29803923, 0.09019608, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_33hvx"]
+material = SubResource("StandardMaterial3D_33hvx")
 
-[node name="PoolTable" type="Area3D"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hijxb"]
+albedo_color = Color(0.1664508, 0.11780397, 0.0073970226, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hijxb"]
+material = SubResource("StandardMaterial3D_hijxb")
+size = Vector3(0.05, 0.12, 1.6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ryorf"]
+albedo_color = Color(0.16470589, 0.11764706, 0.007843138, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ryorf"]
+material = SubResource("StandardMaterial3D_ryorf")
+size = Vector3(0.795, 0.12, 0.05)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_33hvx"]
+size = Vector3(1.000061, 0.08188248, 1.7468414)
+
+[node name="PoolTable" type="StaticBody3D"]
+transform = Transform3D(16, 0, 0, 0, 16, 0, 0, 0, 16, -0.009594917, 6.8562145, 0)
+collision_mask = 2
+
+[node name="felt" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.084, 0, 0, 0, 1.746, 0, -0.499872, 0)
+mesh = SubResource("BoxMesh_33hvx")
+
+[node name="large_wall0" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.524803, -0.48216963, 0)
+mesh = SubResource("BoxMesh_hijxb")
+
+[node name="large_wall1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5263378, -0.48260403, 0)
+mesh = SubResource("BoxMesh_hijxb")
+skeleton = NodePath("../large_wall0")
+
+[node name="small_wall0" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4822163, -0.89800596)
+mesh = SubResource("BoxMesh_ryorf")
+
+[node name="small_wall1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.48345897, 0.90040064)
+mesh = SubResource("BoxMesh_ryorf")
+skeleton = NodePath("../small_wall0")
 
 [node name="Floor" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.507609, 0)
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 9.1552734e-05, -0.49783492, 0.0006027221)
 shape = SubResource("BoxShape3D_33hvx")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(11.9698, 0, 0, 0, 1, 0, 0, 0, 20.8991, 0, -0.499872, 0)
-mesh = SubResource("BoxMesh_33hvx")
